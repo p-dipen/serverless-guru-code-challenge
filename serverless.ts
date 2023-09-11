@@ -1,6 +1,8 @@
 import type { AWS } from '@serverless/typescript';
 
 import getAllTodos from '@functions/getAllTodos';
+import createTodo from '@functions/createTodo';
+
 
 const serverlessConfiguration: AWS = {
   service: 'serverless-guru',
@@ -30,13 +32,13 @@ const serverlessConfiguration: AWS = {
             "dynamodb:UpdateItem",
             "dynamodb:DeleteItem",
           ],
-          Resource: "arn:aws:dynamodb:us-west-2:*:table/TodosTable",
+          Resource: "arn:aws:dynamodb:us-east-1:*:table/TodosTable",
         }],
       },
     },
   },
   // import the function via paths
-  functions: { getAllTodos },
+  functions: { getAllTodos, createTodo },
   package: { individually: true },
   custom: {
     esbuild: {
