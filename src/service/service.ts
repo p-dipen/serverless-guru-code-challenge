@@ -38,7 +38,7 @@ export default class TodoService {
 
     }
 
-    async updateTodo(id: string, todo: Partial<Todo>): Promise<Todo> {
+    async updateTodo(id: string, todo?: Partial<Todo>): Promise<Todo> {
         const updated = await this.docClient
             .update({
                 TableName: this.Tablename,
