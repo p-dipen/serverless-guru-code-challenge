@@ -14,6 +14,21 @@ export default class TodoService {
         return todos.Items as Todo[];
     }
 
+    async getTodo(id: string): Promise<any> {
+
+        const todo = await this.docClient.get({
+            TableName: this.Tablename,
+            Key: {
+                todosId: id
+            }
+        }).promise()
+        if (!todo.Item) {
+            throw new Error("Id does not exit");
+        }
+        return todo.Item as Todo;
+
+    }
+
     async createTodo(todo: Todo): Promise<Todo> {
         await this.docClient.put({
             TableName: this.Tablename,
