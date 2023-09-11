@@ -1,3 +1,3 @@
-export { default as getAllTodos } from './getAllTodos';
+export { getAllTodos, getTodo } from './getTodo';
 export { default as createTodo } from './createTodo';
 
