@@ -2,14 +2,14 @@
 
 This project based on Todo Application using AWS Api Gateway CRUD Microservices using serverless framework.
 
-✅ 5 Lambda Functions
-✅ Rest Api Gateway
-✅ Deploy Infrastructure using Serverless Framework
-✅ Github Action CI/CD
-✅ Unit test cases
+✅ 5 Lambda Functions<br />
+✅ Rest Api Gateway<br />
+✅ Deploy Infrastructure using Serverless Framework<br />
+✅ Github Action CI/CD<br />
+✅ Unit test cases<br />
 
 <p align="center">
-    <img src="https://i.imgur.com/mfdUOAa.png" />
+    <img src="https://i.imgur.com/ETicvG0.png" />
 </p>
 
 ## Installation/deployment instructions
