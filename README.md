@@ -1,8 +1,16 @@
-# Serverless - AWS Node.js Typescript
+<h1 align="center">Welcome 👋</h1>
 
-This project has been generated using the `aws-nodejs-typescript` template from the [Serverless framework](https://www.serverless.com/).
+This project based on Todo Application using AWS Api Gateway CRUD Microservices using serverless framework.
 
-For detailed instructions, please refer to the [documentation](https://www.serverless.com/framework/docs/providers/aws/).
+✅ 5 Lambda Functions<br />
+✅ Rest Api Gateway<br />
+✅ Deploy Infrastructure using Serverless Framework<br />
+✅ Github Action CI/CD<br />
+✅ Unit test cases<br />
+
+<p align="center">
+    <img src="https://i.imgur.com/ETicvG0.png" />
+</p>
 
 ## Installation/deployment instructions
 
