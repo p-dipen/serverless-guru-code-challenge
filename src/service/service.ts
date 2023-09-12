@@ -43,14 +43,7 @@ export default class TodoService {
             .update({
                 TableName: this.Tablename,
                 Key: { todosId: id },
-                UpdateExpression:
-                    "set #status = :status",
-                ExpressionAttributeNames: {
-                    "#status": "status",
-                },
-                ExpressionAttributeValues: {
-                    ":status": true,
-                },
+                ...getUpdateParams(todo),
                 ReturnValues: "ALL_NEW",
             })
             .promise();
@@ -66,3 +59,26 @@ export default class TodoService {
         }).promise();
     }
 }
+
+export const getUpdateParams = (params: { [key: string]: any }) => ({
+    UpdateExpression: `set ${Object.entries(params)
+        .map(([key]) => `#${key} = :${key}, `)
+        .reduce((acc, str) => acc + str)
+        .slice(0, -2)}`,
+
+    ExpressionAttributeNames: Object.keys(params).reduce(
+        (acc, key) => ({
+            ...acc,
+            [`#${key}`]: key,
+        }),
+        {}
+    ),
+
+    ExpressionAttributeValues: Object.entries(params).reduce(
+        (acc, [key, value]) => ({
+            ...acc,
+            [`:${key}`]: value,
+        }),
+        {}
+    ),
+})

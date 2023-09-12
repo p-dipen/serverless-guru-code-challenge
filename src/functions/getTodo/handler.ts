@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
-import { formatJSONResponse } from '@libs/api-gateway';
-import { middyfy } from '@libs/lambda';
+import { formatJSONResponse } from '../../libs/api-gateway';
+import { middyfy } from '../../libs/lambda';
 import todosService from '../../service'
 
 export const getAllTodos = middyfy(async (): Promise<APIGatewayProxyResult> => {
@@ -17,7 +17,7 @@ export const getAllTodos = middyfy(async (): Promise<APIGatewayProxyResult> => {
 export const getTodo = middyfy(async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     const id = event.pathParameters.id;
     try {
-        const todo = await todosService.getTodo(id)
+        const todo = await todosService.getTodo(id);
         return formatJSONResponse({
             todo, id
         });
